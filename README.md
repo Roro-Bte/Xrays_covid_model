@@ -1,2 +1,3 @@
-# Xrays_covid_model
-Predictive clasification model for covid xrays images
+# Xrays covid19 model
+Predictive clasification model for covid xrays images. 
+
