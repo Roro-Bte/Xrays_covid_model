@@ -19,28 +19,11 @@ from torchvision import datasets, transforms, models
 
 
 
-def model_fn(model_dir):
-    """Load the PyTorch model from the `model_dir` directory."""
-    print("Loading model.")
-
-    # Determine the device and construct the model.
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
-    name = 'cnn.pth'
-    checkpoint = torch.load(os.path.join(model_dir, name))
-    model = models.vgg16(pretrained=True)
-    model.classifier[6] = nn.Linear(checkpoint['n_input'], checkpoint['n_classes'])
-    model.load_state_dict(checkpoint['state_dict'])
-    
-    # set to eval mode, could use no_grad
-    model.to(device).eval()
-
-    print("Done loading model.")
-    return model
-
-
 # Load the training data 
 def _get_loader(batch_size, data_dir, editions, valid_size):
+    """Loads data to a train and validation loader
+    """
+    
     print("Get data loader.")
     dataset = datasets.ImageFolder(data_dir, transform=editions)
     print("Classes and their index:")
