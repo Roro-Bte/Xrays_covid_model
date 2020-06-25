@@ -1,23 +1,31 @@
 # Xrays covid19 model
 The complete report can be found [here](https://github.com/Roro-Bte/Xrays_covid_model/blob/master/Machine%20Learning%20Capstone%20Project.docx).
+
+
+The problem is a classification for four classes.  The proposed model classifies between normal, and three types of pneumonia: bacteria, virus (not covid-19), and covid-19.
 To get started, please check the Dependencies section. Please note that the code was created both in a local machine and AWS because of the data augmentation process, which copies a big amount of data. This data manipulation was decided to be done in the local computer and then uploaded with [cyberduck](https://cyberduck.io/download/).
 
 ## Data augmentation
-The sections before training have to be done outside of AWS. 
-Inside the notebook, the necessary folders are extracted and created for the training and testing data. 
+The sections before training have to be done outside of AWS, on your local PC. 
+Inside the notebook, the necessary folders are extracted and created for the training and testing data. Get 8 covid-19 images and move them to the covid-19 test folder. This is because no images came in that destination folder. The other 50 images stay, and both folders are augmented with the code in the notebook.  
 
 ## Uploading the training files
 In AWS, create a new role that has full access to S3. AWS then creates a "Access key ID" and a secret key. Please store that information to enter it in Cyberduck.
 Upload the newly created folders with the data to S3. 
 
 ## Uploading the testset
-Upload a zip for the testset directly to the notebook instance. 
+Upload a zip for the testset directly to the notebook instance, and extract it. 
 
 ## Training
-From here on the notebook is meant to be run from a notebook instance in AWS. There is only one Pytorch estimator defined, but run several times with different names for the different models. 
+From here on the notebook is meant to be run from a notebook instance in AWS. There is only one Pytorch estimator defined, but run several times with different names for the different models. Four models were run in total for the final report, using the ml.p2.xlarge machine. Even though the ml.p2.8xlarge was tried, the economy of time was less than the higher price. 
+After training, the output of the training and validation losses are imported and graphed. To save the graph, click on the little camera icon on the top right corner.  
+The validation size used by default is 15% of the training data. 
 
 ## Testing
-The code accesses a local test folder in the notebook instance instead of taking the information directly from S3, as opposed to the training estimator that acceses directly. 
+The code accesses a local test folder in the notebook instance instead of taking the information directly from S3, as opposed to the training estimator that acceses directly. That is why the testset must be uploaded directly to the notebook instance.
+A Pytorchmodel object is deployed, and it must have the path (or name) of the uri that contains the model artifacts in S3. In this way, the model can access an old saved model for deployment. 
+
+
 
 
 # Dependencies
