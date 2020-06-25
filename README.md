@@ -5,6 +5,9 @@ The complete report can be found [here](https://github.com/Roro-Bte/Xrays_covid_
 The problem is a classification for four classes.  The proposed model classifies between normal, and three types of pneumonia: bacteria, virus (not covid-19), and covid-19.
 To get started, please check the Dependencies section. Please note that the code was created both in a local machine and AWS because of the data augmentation process, which copies a big amount of data. This data manipulation was decided to be done in the local computer and then uploaded with [cyberduck](https://cyberduck.io/download/).
 
+
+For downloading the data files, please visit this [page](https://www.kaggle.com/praveengovi/coronahack-chest-xraydataset) from Kaggle.
+
 ## Data augmentation
 The sections before training have to be done outside of AWS, on your local PC. 
 Inside the notebook, the necessary folders are extracted and created for the training and testing data. Get 8 covid-19 images and move them to the covid-19 test folder. This is because no images came in that destination folder. The other 50 images stay, and both folders are augmented with the code in the notebook.  
