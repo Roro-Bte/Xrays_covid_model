@@ -14,7 +14,7 @@ In AWS, create a new role that has full access to S3. AWS then creates a "Access
 Upload the newly created folders with the data to S3. 
 
 ## Uploading the testset
-Upload a zip for the testset directly to the notebook instance, and extract it. 
+Upload a zip for the testset directly to the AWS notebook instance, and extract it. 
 
 ## Training
 From here on the notebook is meant to be run from a notebook instance in AWS. There is only one Pytorch estimator defined, but run several times with different names for the different models. Four models were run in total for the final report, using the ml.p2.xlarge machine. Even though the ml.p2.8xlarge was tried, the economy of time was less than the higher price. 
