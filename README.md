@@ -1,5 +1,5 @@
 # Xrays covid19 model
-The complete report can be found [here](https://github.com/Roro-Bte/Xrays_covid_model/blob/master/Machine%20Learning%20Capstone%20Project.docx).
+The complete report can be found [here](https://github.com/Roro-Bte/Xrays_covid_model/blob/master/Capstone%20Project%20Report.pdf).
 
 
 The problem is a classification for four classes.  The proposed model classifies between normal, and three types of pneumonia: bacteria, virus (not covid-19), and covid-19.
